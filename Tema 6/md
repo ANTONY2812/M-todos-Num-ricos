@@ -1,1 +1,84 @@
+# Pseudocódigos de Métodos para Ecuaciones Diferenciales Ordinarias
 
+## Método de Un Paso (Euler)
+
+### Definición
+Método simple que aproxima el valor siguiente sumando la pendiente actual multiplicada por el tamaño del paso.
+
+### Algoritmo
+
+```plaintext
+Algoritmo Metodo_Euler
+Inicio
+    Leer x0, y0, h, n
+    Leer función f(x, y)
+
+    Para i ← 1 hasta n Hacer
+        y ← y + h * f(x, y)
+        x ← x + h
+        Escribir "x:", x, " y:", y
+    FinPara
+Fin
+
+Algoritmo Metodo_Taylor_Orden2
+Inicio
+    Leer x0, y0, h, n
+    Leer f(x, y), fx(x, y), fy(x, y)
+
+    Para i ← 1 hasta n Hacer
+        fxy ← fx(x, y) + fy(x, y) * f(x, y)
+        y ← y + h * f(x, y) + (h^2 / 2) * fxy
+        x ← x + h
+        Escribir "x:", x, " y:", y
+    FinPara
+Fin
+
+Algoritmo Metodo_Runge_Kutta
+Inicio
+    Leer x0, y0, h, n
+    Leer función f(x, y)
+
+    Para i ← 1 hasta n Hacer
+        k1 ← h * f(x, y)
+        k2 ← h * f(x + h/2, y + k1/2)
+        k3 ← h * f(x + h/2, y + k2/2)
+        k4 ← h * f(x + h, y + k3)
+        y ← y + (k1 + 2*k2 + 2*k3 + k4)/6
+        x ← x + h
+        Escribir "x:", x, " y:", y
+    FinPara
+Fin
+
+Algoritmo Metodo_Adams_Bashforth
+Inicio
+    Leer x0, y0, h, n
+    Leer función f(x, y)
+
+    // Inicializar los primeros 4 valores usando Runge-Kutta
+    Calcular y1, y2, y3 con RK4
+
+    Para i ← 4 hasta n Hacer
+        fi   ← f(x[i], y[i])
+        fi_1 ← f(x[i-1], y[i-1])
+        fi_2 ← f(x[i-2], y[i-2])
+        fi_3 ← f(x[i-3], y[i-3])
+
+        y[i+1] ← y[i] + (h/24) * (55*fi - 59*fi_1 + 37*fi_2 - 9*fi_3)
+        x[i+1] ← x[i] + h
+
+        Escribir "x:", x[i+1], " y:", y[i+1]
+    FinPara
+Fin
+
+Algoritmo Sistemas_EDO_Euler
+Inicio
+    Leer x0, y0, z0, h, n
+    Leer funciones f(x, y, z), g(x, y, z)
+
+    Para i ← 1 hasta n Hacer
+        y ← y + h * f(x, y, z)
+        z ← z + h * g(x, y, z)
+        x ← x + h
+        Escribir "x:", x, " y:", y, " z:", z
+    FinPara
+Fin
