@@ -1,0 +1,17 @@
+#Pseudocódogo Error Absoluto
+Inicio
+    Escribir "Ingresa el valor verdadero:"
+    Leer valor_verdadero
+
+    Escribir "Ingresa el valor aproximado:"
+    Leer valor_aproximado
+
+    error_absoluto ← valor_verdadero - valor_aproximado
+
+    Si error_absoluto < 0 Entonces
+        error_absoluto ← -error_absoluto
+    FinSi
+
+    Escribir "El error absoluto es: ", error_absoluto
+Fin
+
