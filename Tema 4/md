@@ -1,1 +1,87 @@
+# Pseudocódigos de Métodos de Integración Numérica
+## Método de la Cuadratura Gaussiana
 
+### Definición
+Aproxima la integral evaluando la función en puntos específicos y usando pesos predefinidos.
+
+### Algoritmo (Gauss-Legendre con 2 puntos)
+
+```plaintext
+Algoritmo Cuadratura_Gaussiana
+Inicio
+    Leer a, b  // límites de integración
+    Leer función f(x)
+
+    // Puntos y pesos para n=2
+    x1 ← -0.5773502692
+    x2 ←  0.5773502692
+    w1 ← 1
+    w2 ← 1
+
+    // Transformación al intervalo [a, b]
+    t1 ← ((b - a) / 2) * x1 + (a + b) / 2
+    t2 ← ((b - a) / 2) * x2 + (a + b) / 2
+
+    resultado ← ((b - a) / 2) * (w1 * f(t1) + w2 * f(t2))
+
+    Escribir "Resultado:", resultado
+Fin
+
+Algoritmo Simpson_Un_Tercio
+Inicio
+    Leer a, b, n  // n debe ser par
+    Leer función f(x)
+
+    h ← (b - a) / n
+    suma ← f(a) + f(b)
+
+    Para i ← 1 hasta n-1 Hacer
+        x ← a + i * h
+        Si i mod 2 = 0 Entonces
+            suma ← suma + 2 * f(x)
+        Sino
+            suma ← suma + 4 * f(x)
+        FinSi
+    FinPara
+
+    resultado ← (h / 3) * suma
+    Escribir "Resultado:", resultado
+Fin
+
+Algoritmo Simpson_Tres_Octavos
+Inicio
+    Leer a, b, n  // n debe ser múltiplo de 3
+    Leer función f(x)
+
+    h ← (b - a) / n
+    suma ← f(a) + f(b)
+
+    Para i ← 1 hasta n-1 Hacer
+        x ← a + i * h
+        Si i mod 3 = 0 Entonces
+            suma ← suma + 2 * f(x)
+        Sino
+            suma ← suma + 3 * f(x)
+        FinSi
+    FinPara
+
+    resultado ← (3 * h / 8) * suma
+    Escribir "Resultado:", resultado
+Fin
+
+Algoritmo Metodo_Trapecio
+Inicio
+    Leer a, b, n
+    Leer función f(x)
+
+    h ← (b - a) / n
+    suma ← f(a) + f(b)
+
+    Para i ← 1 hasta n-1 Hacer
+        x ← a + i * h
+        suma ← suma + 2 * f(x)
+    FinPara
+
+    resultado ← (h / 2) * suma
+    Escribir "Resultado:", resultado
+Fin
