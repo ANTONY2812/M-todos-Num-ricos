@@ -1,17 +1,50 @@
-#Pseudocódogo Error Absoluto
+# Pseudocódigos de Errores Numéricos
+
+Este documento incluye algoritmos en pseudocódigo para calcular distintos tipos de errores numéricos: **Error Absoluto**, **Error Relativo**, **Error de Redondeo** y **Error de Truncamiento**.
+
+---
+
+## Error Absoluto
+
+### Definición
+Es la diferencia absoluta entre el valor real y el valor aproximado.
+
+### Algoritmo
+
+```plaintext
+Algoritmo Error_Absoluto
 Inicio
-    Escribir "Ingresa el valor verdadero:"
-    Leer valor_verdadero
-
-    Escribir "Ingresa el valor aproximado:"
-    Leer valor_aproximado
-
-    error_absoluto ← valor_verdadero - valor_aproximado
-
-    Si error_absoluto < 0 Entonces
-        error_absoluto ← -error_absoluto
-    FinSi
-
-    Escribir "El error absoluto es: ", error_absoluto
+    Leer valor_real, valor_aproximado
+    error_absoluto ← |valor_real - valor_aproximado|
+    Escribir "El error absoluto es:", error_absoluto
 Fin
 
+Algoritmo Error_Relativo
+Inicio
+    Leer valor_real, valor_aproximado
+    error_absoluto ← |valor_real - valor_aproximado|
+    Si valor_real ≠ 0 Entonces
+        error_relativo ← error_absoluto / |valor_real|
+        Escribir "El error relativo es:", error_relativo
+    Sino
+        Escribir "Error: el valor real no puede ser cero"
+    FinSi
+Fin
+
+
+Algoritmo Error_De_Redondeo
+Inicio
+    Leer numero_original, cifras_decimales
+    numero_redondeado ← Redondear(numero_original, cifras_decimales)
+    error_redondeo ← |numero_original - numero_redondeado|
+    Escribir "El error de redondeo es:", error_redondeo
+Fin
+
+
+Algoritmo Error_De_Truncamiento
+Inicio
+    Leer numero_original, cifras_decimales
+    numero_truncado ← Truncar(numero_original, cifras_decimales)
+    error_truncamiento ← |numero_original - numero_truncado|
+    Escribir "El error de truncamiento es:", error_truncamiento
+Fin
