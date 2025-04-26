@@ -1,7 +1,7 @@
 # Instituto Tecnológico Superior del Oriente del Estado de Hidalgo 
 ## ITESA
-#Ingeniería en Sistemas Computacionales
-#Métodos Numéricos
+# Ingeniería en Sistemas Computacionales
+# Métodos Numéricos
 # GITHUB
 # MTI. Efrén Rolando Romero León
 # López Jiménez Antony Eduard - 23030154
