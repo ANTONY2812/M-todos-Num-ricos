@@ -1,1 +1,131 @@
+# Pseudocódigos de Métodos para Sistemas de Ecuaciones Lineales
+## Método de Eliminación Gaussiana
+
+### Definición
+Transforma el sistema de ecuaciones en una matriz triangular superior y luego aplica sustitución regresiva.
+
+### Algoritmo
+
+```plaintext
+Algoritmo Eliminacion_Gaussiana
+Inicio
+    Leer n  // número de ecuaciones
+    Leer matriz A[n][n+1]  // matriz aumentada
+
+    // Eliminación hacia adelante
+    Para k ← 0 hasta n-1 Hacer
+        Para i ← k+1 hasta n-1 Hacer
+            factor ← A[i][k] / A[k][k]
+            Para j ← k hasta n Hacer
+                A[i][j] ← A[i][j] - factor * A[k][j]
+            FinPara
+        FinPara
+    FinPara
+
+    // Sustitución regresiva
+    Crear vector x[n]
+    Para i ← n-1 hasta 0 con paso -1 Hacer
+        suma ← 0
+        Para j ← i+1 hasta n-1 Hacer
+            suma ← suma + A[i][j] * x[j]
+        FinPara
+        x[i] ← (A[i][n] - suma) / A[i][i]
+    FinPara
+
+    Escribir "Soluciones:", x
+Fin
+
+Algoritmo Gauss_Jordan
+Inicio
+    Leer n
+    Leer matriz A[n][n+1]  // matriz aumentada
+
+    Para i ← 0 hasta n-1 Hacer
+        // Hacer A[i][i] igual a 1
+        pivote ← A[i][i]
+        Para j ← 0 hasta n Hacer
+            A[i][j] ← A[i][j] / pivote
+        FinPara
+
+        // Hacer cero los demás elementos en la columna
+        Para k ← 0 hasta n-1 Hacer
+            Si k ≠ i Entonces
+                factor ← A[k][i]
+                Para j ← 0 hasta n Hacer
+                    A[k][j] ← A[k][j] - factor * A[i][j]
+                FinPara
+            FinSi
+        FinPara
+    FinPara
+
+    Crear vector x[n]
+    Para i ← 0 hasta n-1 Hacer
+        x[i] ← A[i][n]
+    FinPara
+
+    Escribir "Soluciones:", x
+Fin
+
+Algoritmo Gauss_Seidel
+Inicio
+    Leer n, tolerancia, max_iteraciones
+    Leer matriz A[n][n], vector b[n]
+    Inicializar x[n] con ceros
+
+    iter ← 0
+    Repetir
+        error_max ← 0
+        Para i ← 0 hasta n-1 Hacer
+            suma ← b[i]
+            Para j ← 0 hasta n-1 Hacer
+                Si j ≠ i Entonces
+                    suma ← suma - A[i][j] * x[j]
+                FinSi
+            FinPara
+            nuevo ← suma / A[i][i]
+            error ← |nuevo - x[i]|
+            Si error > error_max Entonces
+                error_max ← error
+            FinSi
+            x[i] ← nuevo
+        FinPara
+        iter ← iter + 1
+    Hasta que error_max < tolerancia o iter = max_iteraciones
+
+    Escribir "Soluciones:", x
+Fin
+
+Algoritmo Jacobi
+Inicio
+    Leer n, tolerancia, max_iteraciones
+    Leer matriz A[n][n], vector b[n]
+    Inicializar x[n] con ceros
+    Inicializar x_nuevo[n] con ceros
+
+    iter ← 0
+    Repetir
+        error_max ← 0
+        Para i ← 0 hasta n-1 Hacer
+            suma ← b[i]
+            Para j ← 0 hasta n-1 Hacer
+                Si j ≠ i Entonces
+                    suma ← suma - A[i][j] * x[j]
+                FinSi
+            FinPara
+            x_nuevo[i] ← suma / A[i][i]
+            error ← |x_nuevo[i] - x[i]|
+            Si error > error_max Entonces
+                error_max ← error
+            FinSi
+        FinPara
+
+        Para i ← 0 hasta n-1 Hacer
+            x[i] ← x_nuevo[i]
+        FinPara
+
+        iter ← iter + 1
+    Hasta que error_max < tolerancia o iter = max_iteraciones
+
+    Escribir "Soluciones:", x
+Fin
 
