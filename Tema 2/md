@@ -1,1 +1,154 @@
+# Pseudocódigos de Métodos de Búsqueda de Raíces
+## Método de Bisección
 
+### Definición
+Este método encuentra una raíz dividiendo el intervalo en mitades, verificando en cuál mitad cambia de signo la función.
+
+### Algoritmo
+
+```plaintext
+Algoritmo Biseccion
+Inicio
+    Leer a, b, tolerancia, max_iteraciones
+    Leer f(x)
+    
+    Si f(a) * f(b) ≥ 0 Entonces
+        Escribir "No se garantiza una raíz en el intervalo"
+        Terminar
+    FinSi
+    
+    iteración ← 0
+    Mientras iteración < max_iteraciones Hacer
+        c ← (a + b) / 2
+        Si |f(c)| < tolerancia Entonces
+            Escribir "Raíz aproximada:", c
+            Terminar
+        FinSi
+        
+        Si f(a) * f(c) < 0 Entonces
+            b ← c
+        Sino
+            a ← c
+        FinSi
+        
+        iteración ← iteración + 1
+    FinMientras
+    
+    Escribir "Iteraciones máximas alcanzadas. Raíz aproximada:", c
+Fin
+
+Algoritmo Secante
+Inicio
+    Leer x0, x1, tolerancia, max_iteraciones
+    Leer f(x)
+    
+    iteración ← 0
+    Mientras iteración < max_iteraciones Hacer
+        f0 ← f(x0)
+        f1 ← f(x1)
+        
+        Si (f1 - f0) = 0 Entonces
+            Escribir "División por cero"
+            Terminar
+        FinSi
+        
+        x2 ← x1 - f1 * (x1 - x0) / (f1 - f0)
+        
+        Si |x2 - x1| < tolerancia Entonces
+            Escribir "Raíz aproximada:", x2
+            Terminar
+        FinSi
+        
+        x0 ← x1
+        x1 ← x2
+        iteración ← iteración + 1
+    FinMientras
+    
+    Escribir "Iteraciones máximas alcanzadas. Raíz aproximada:", x2
+Fin
+
+Algoritmo Newton_Raphson
+Inicio
+    Leer x0, tolerancia, max_iteraciones
+    Leer f(x), f'(x)
+    
+    iteración ← 0
+    Mientras iteración < max_iteraciones Hacer
+        f_val ← f(x0)
+        f_der ← f'(x0)
+        
+        Si f_der = 0 Entonces
+            Escribir "Derivada cero. No se puede continuar"
+            Terminar
+        FinSi
+        
+        x1 ← x0 - f_val / f_der
+        
+        Si |x1 - x0| < tolerancia Entonces
+            Escribir "Raíz aproximada:", x1
+            Terminar
+        FinSi
+        
+        x0 ← x1
+        iteración ← iteración + 1
+    FinMientras
+    
+    Escribir "Iteraciones máximas alcanzadas. Raíz aproximada:", x1
+Fin
+
+
+Algoritmo Punto_Fijo
+Inicio
+    Leer x0, tolerancia, max_iteraciones
+    Leer g(x)
+    
+    iteración ← 0
+    Mientras iteración < max_iteraciones Hacer
+        x1 ← g(x0)
+        
+        Si |x1 - x0| < tolerancia Entonces
+            Escribir "Raíz aproximada:", x1
+            Terminar
+        FinSi
+        
+        x0 ← x1
+        iteración ← iteración + 1
+    FinMientras
+    
+    Escribir "Iteraciones máximas alcanzadas. Raíz aproximada:", x1
+Fin
+
+
+Algoritmo Regla_Falsa
+Inicio
+    Leer a, b, tolerancia, max_iteraciones
+    Leer f(x)
+    
+    Si f(a) * f(b) ≥ 0 Entonces
+        Escribir "No se garantiza una raíz en el intervalo"
+        Terminar
+    FinSi
+    
+    iteración ← 0
+    Mientras iteración < max_iteraciones Hacer
+        fa ← f(a)
+        fb ← f(b)
+        c ← b - fb * (b - a) / (fb - fa)
+        fc ← f(c)
+        
+        Si |fc| < tolerancia Entonces
+            Escribir "Raíz aproximada:", c
+            Terminar
+        FinSi
+        
+        Si fa * fc < 0 Entonces
+            b ← c
+        Sino
+            a ← c
+        FinSi
+        
+        iteración ← iteración + 1
+    FinMientras
+    
+    Escribir "Iteraciones máximas alcanzadas. Raíz aproximada:", c
+Fin
