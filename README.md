@@ -12,9 +12,9 @@ Como estudiante de sistemas computacionales, los métodos numéricos te ayudará
 
 | # | Tema                                          | Códigos                                                                 |
 |---|-----------------------------------------------|-------------------------------------------------------------------------|
-| 1 | Introducción a los métodos numéricos          | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/main/Tema%201) |
-| 2 | Solución de ecuaciones no lineales            | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/main/Tema%202) |
-| 3 | Sistemas de ecuaciones lineales               | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/main/Tema%203) |
-| 4 | Diferenciación e integración numérica         | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/main/Tema%204) |
-| 5 | Interpolación y ajuste de datos               | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/main/Tema%205) |
-| 6 | Ecuaciones diferenciales ordinarias           | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/main/Tema%206) |
+| 1 | Introducción a los métodos numéricos          | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/master/Tema%201) |
+| 2 | Solución de ecuaciones no lineales            | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/master/Tema%202) |
+| 3 | Sistemas de ecuaciones lineales               | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/master/Tema%203) |
+| 4 | Diferenciación e integración numérica         | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/master/Tema%204) |
+| 5 | Interpolación y ajuste de datos               | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/master/Tema%205) |
+| 6 | Ecuaciones diferenciales ordinarias           | 📁 [Ver códigos](https://github.com/ANTONY2812/M-todos-Num-ricos/tree/master/Tema%206) |
