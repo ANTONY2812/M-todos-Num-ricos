@@ -48,3 +48,4 @@ Inicio
     error_truncamiento ← |numero_original - numero_truncado|
     Escribir "El error de truncamiento es:", error_truncamiento
 Fin
+
