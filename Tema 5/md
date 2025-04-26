@@ -1,1 +1,79 @@
+# Pseudocódigos de Métodos de Ajuste e Interpolación
+
+## Interpolación Lineal
+
+### Definición
+Calcula un valor intermedio estimado entre dos puntos conocidos.
+
+### Algoritmo
+
+```plaintext
+Algoritmo Interpolacion_Lineal
+Inicio
+    Leer x0, y0, x1, y1, x  // puntos conocidos y valor deseado
+    y ← y0 + ((y1 - y0) / (x1 - x0)) * (x - x0)
+    Escribir "Valor interpolado:", y
+Fin
+
+Algoritmo Interpolacion_Polinomica
+Inicio
+    Leer n
+    Para i ← 0 hasta n-1 Hacer
+        Leer xi, yi
+    FinPara
+
+    // Diferencias divididas
+    Para j ← 1 hasta n-1 Hacer
+        Para i ← n-1 hasta j Hacer
+            y[i] ← (y[i] - y[i-1]) / (x[i] - x[i-j])
+        FinPara
+    FinPara
+
+    Leer x  // valor a interpolar
+    resultado ← y[n-1]
+    Para i ← n-2 hasta 0 Paso -1 Hacer
+        resultado ← resultado * (x - x[i]) + y[i]
+    FinPara
+
+    Escribir "Resultado:", resultado
+Fin
+
+Algoritmo Correlacion_Pearson
+Inicio
+    Leer n
+    Para i ← 1 hasta n Hacer
+        Leer xi, yi
+    FinPara
+
+    Calcular sumX, sumY, sumXY, sumX2, sumY2
+
+    r ← (n * sumXY - sumX * sumY) / 
+         sqrt((n * sumX2 - sumX^2) * (n * sumY2 - sumY^2))
+
+    Escribir "Coeficiente de correlación:", r
+Fin
+
+Algoritmo Minimos_Cuadrados
+Inicio
+    Leer n
+    Para i ← 1 hasta n Hacer
+        Leer xi, yi
+    FinPara
+
+    Calcular sumX, sumY, sumXY, sumX2
+
+    a ← (n * sumXY - sumX * sumY) / (n * sumX2 - sumX^2)
+    b ← (sumY - a * sumX) / n
+
+    Escribir "Recta ajustada: y =", a, "* x +", b
+Fin
+
+Algoritmo Regresion_Lineal
+Inicio
+    Ejecutar Minimos_Cuadrados  // usar el algoritmo anterior
+    Leer x  // valor a predecir
+    y ← a * x + b
+    Escribir "Valor estimado para x:", x, "es y =", y
+Fin
+
 
